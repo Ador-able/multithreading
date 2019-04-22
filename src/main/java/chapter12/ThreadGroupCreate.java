@@ -2,11 +2,7 @@ package  chapter12;
 
 import java.util.Arrays;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/2/25 QQ:532500648
- * QQ交流群:286081824
- ***************************************/
+
 public class ThreadGroupCreate {
 
     public static void main(String[] args) {

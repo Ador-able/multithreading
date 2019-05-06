@@ -10,6 +10,8 @@ public class TicketWindowRunnable implements Runnable {
     @Override
     public void run() {
 
+        //int index = 1;
+
         while (index <= MAX) {
             System.out.println(Thread.currentThread() + " 的号码是:" + (index++));
             try {

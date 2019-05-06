@@ -14,7 +14,9 @@ public class TaxCalculatorMain {
         double tax = calculator.calculate();
         System.out.println(tax);*/
 
-        TaxCalaculator calculator = new TaxCalaculator(10000d, 2000d, (s, b) -> s * 0.1 + b * 0.15);
-        System.out.println(calculator.calculate());
+        TaxCalaculator calculator1 = new TaxCalaculator(10000d, 2000d, (s, b) -> s * 0.1 + b * 0.15);
+        TaxCalaculator calculator2 = new TaxCalaculator(10000d, 2000d, new SimpleCalculatorStrategy());
+        System.out.println(calculator1.calculate());
+        System.out.println(calculator2.calculate());
     }
 }

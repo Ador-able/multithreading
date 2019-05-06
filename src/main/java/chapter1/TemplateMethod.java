@@ -29,6 +29,5 @@ public class TemplateMethod {
         };
 
         t2.print("Hello Thread");
-
     }
 }

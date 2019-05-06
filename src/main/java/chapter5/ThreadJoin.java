@@ -19,6 +19,7 @@ public class ThreadJoin {
         t2.start();
         t1.join();
         t2.join();
+        //等待线程死亡后再继续执行
 
         Optional.of("All of tasks finish done.").ifPresent(System.out::println);
         IntStream.range(1, 1000)

@@ -1,10 +1,6 @@
 package  chapter3;
 
-/***************************************
- * @author:Alex Wang
- * @Date:2017/2/16 QQ:532500648
- * QQ交流群:286081824
- ***************************************/
+
 public class CreateThread4 {
 
     private static int counter = 1;
@@ -26,6 +22,7 @@ public class CreateThread4 {
                 add(i + 1);
             }
         }, "Test", 1 << 24);
+        //stackSize为0表示忽略该参数，该参数对某些平台无效，表示栈的大小
         t1.start();
     }
 }

@@ -27,7 +27,8 @@ public class ThreadJoin2 {
         //start httpServer
         //JettyHttpServer.start();
 
-//        Thread.currentThread().join();
+        //Thread.currentThread().join();
+        //当前线程不会停止。
 
         Thread t1 = new Thread(() -> {
 

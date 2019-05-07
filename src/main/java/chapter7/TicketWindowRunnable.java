@@ -13,7 +13,8 @@ public class TicketWindowRunnable implements Runnable {
     public void run() {
 
         while (true) {
-            //1
+            //1  通过synchronized将复合操作作为原子操作执行
+            //一定要避免进行在synchronized中进行耗时操作，尤其是IO相关
             synchronized (MONITOR) {
                 if (index > MAX)
                     break;

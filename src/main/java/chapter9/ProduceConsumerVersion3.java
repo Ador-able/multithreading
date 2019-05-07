@@ -20,12 +20,10 @@ public class ProduceConsumerVersion3 {
                     e.printStackTrace();
                 }
             }
-
             i++;
             System.out.println("P->" + i);
             LOCK.notifyAll();
             isProduced = true;
-
         }
     }
 

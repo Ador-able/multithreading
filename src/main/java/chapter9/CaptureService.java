@@ -2,7 +2,7 @@ package  chapter9;
 
 import java.util.*;
 
-
+//开启多线程，但有最大线程执行数，超出最大学科数的线程等待，在其余线程执行完毕后自动补足
 public class CaptureService {
 
     final static private LinkedList<Control> CONTROLS = new LinkedList<>();
@@ -35,6 +35,7 @@ public class CaptureService {
             Optional.of("The worker [" + Thread.currentThread().getName() + "] BEGIN capture data.")
                     .ifPresent(System.out::println);
             synchronized (CONTROLS) {
+                //判断当前开启线程数，超出即休眠
                 while (CONTROLS.size() > MAX_WORKER) {
                     try {
                         CONTROLS.wait();
@@ -42,10 +43,8 @@ public class CaptureService {
                         e.printStackTrace();
                     }
                 }
-
                 CONTROLS.addLast(new Control());
             }
-
 
             Optional.of("The worker [" + Thread.currentThread().getName() + "] is working...")
                     .ifPresent(System.out::println);
@@ -55,6 +54,7 @@ public class CaptureService {
                 e.printStackTrace();
             }
 
+            //执行完毕后减少当前执行线程数，并唤醒所有线程
             synchronized (CONTROLS) {
                 Optional.of("The worker [" + Thread.currentThread().getName() + "] END capture data.")
                         .ifPresent(System.out::println);

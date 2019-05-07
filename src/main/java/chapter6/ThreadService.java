@@ -1,8 +1,10 @@
-package  chapter6;
+package chapter6;
 
 
 public class ThreadService {
 
+    //执行线程是可能进行io操作阻塞线程，并不能及时判断中断信号
+    //使用守护线程。在守护线程中执行IO等操作。在线程中执行中断信号判断。在线程退出时，守护线程也会强制退出
     private Thread executeThread;
 
     private boolean finished = false;

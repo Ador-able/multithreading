@@ -4,7 +4,6 @@ package  chapter10;
 public class SynchronizedProblem {
 
     public static void main(String[] args) throws InterruptedException {
-
         new Thread() {
             @Override
             public void run() {
@@ -17,9 +16,9 @@ public class SynchronizedProblem {
         Thread t2 = new Thread() {
             @Override
             public void run() {
-//                /sdfsdfsd
+
                 SynchronizedProblem.run();
-                //sdfsdfsd
+
             }
         };
         t2.start();

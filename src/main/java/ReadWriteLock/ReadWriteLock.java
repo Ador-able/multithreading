@@ -5,6 +5,17 @@ public class ReadWriteLock {
     private int waitingReaders = 0;
     private int writingWriters = 0;
     private int waitingWriters = 0;
+    private boolean preferWriter=true;
+
+    public ReadWriteLock()
+    {
+        this(preferWriter);
+    }
+
+    public ReadWriteLock(boolean preferWriter)
+    {
+        this.preferWriter=preferWriter;
+    }
 
     public synchronized void readLock() throws InterruptedException {
         this.waitingReaders++;

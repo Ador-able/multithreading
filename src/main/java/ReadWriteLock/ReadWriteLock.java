@@ -1,13 +1,15 @@
 package ReadWriteLock;
 
 public class ReadWriteLock {
-    private  int readingReaders = 0;
-    private  int waitingReaders = 0;
-    private  int writingWriters = 0;
-    private  int waitingWriters = 0;
-    private boolean preferWriter = true;
 
-    public ReadWriteLock() {
+    private int readingReaders = 0;
+    private int waitingReaders = 0;
+    private int writingWriters = 0;
+    private int waitingWriters = 0;
+    private boolean preferWriter=true;
+
+    public ReadWriteLock()
+    {
         this(true);
     }
 

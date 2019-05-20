@@ -21,6 +21,15 @@ public class SharedData {
         }
     }
 
+    private char[] doRead() {
+        char[] newBuf = new char[buffer.length];
+        for (int i = 0; i < buffer.length; i++) {
+            newBuf[i] = buffer[i];
+        }
+        slowly(50);
+        return newBuf;
+    }
+
     public void write(char c) throws InterruptedException {
         try {
             lock.writeLock();
@@ -37,14 +46,7 @@ public class SharedData {
         }
     }
 
-    private char[] doRead() {
-        char[] newBuf = new char[buffer.length];
-        for (int i = 0; i < buffer.length; i++) {
-            newBuf[i] = buffer[i];
-        }
-        slowly(50);
-        return newBuf;
-    }
+
 
     private void slowly(int ms) {
         try {

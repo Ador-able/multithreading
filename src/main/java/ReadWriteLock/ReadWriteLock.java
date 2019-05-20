@@ -9,7 +9,7 @@ public class ReadWriteLock {
 
     public ReadWriteLock()
     {
-        this(preferWriter);
+        this(true);
     }
 
     public ReadWriteLock(boolean preferWriter)

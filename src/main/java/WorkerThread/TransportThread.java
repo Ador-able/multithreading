@@ -16,7 +16,13 @@ public class TransportThread extends Thread {
     @Override
     public void run() {
         for (int i = 0; true; i++) {
-            Request request=new Request();
+            Request request=new Request(getName(),i);
+            this.channel.put(request);
+            try {
+                Thread.sleep(RANDOM.nextInt(1000));
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
     }
 }

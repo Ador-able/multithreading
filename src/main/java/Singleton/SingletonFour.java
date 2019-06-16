@@ -7,7 +7,7 @@ public class SingletonFour {
     // 但是此时实例对象并没有构造完成。
     // 假如这个时候线程b进来if语句就会得道instance不是null，
     // 会直接拿到未完成的 instance，从而导致空指针。
-    private static SingletonFour instance;
+    private volatile static SingletonFour instance;
 
     public SingletonFour() {
     }

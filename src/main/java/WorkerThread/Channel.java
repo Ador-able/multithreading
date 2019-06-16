@@ -26,7 +26,7 @@ public class Channel {
     }
 
     public void startWorker() {
-        Arrays.asList(workerPool).forEach(WorkerThread ::start );
+        Arrays.asList(workerPool).forEach(workerThread -> workerThread.start());
     }
 
     public synchronized void put(Request request) {
@@ -44,7 +44,7 @@ public class Channel {
     }
 
     public synchronized Request take() {
-        while (count < 0) {
+        while (count <= 0) {
             try {
                 this.wait();
             } catch (InterruptedException e) {
@@ -53,7 +53,6 @@ public class Channel {
         }
         Request request = this.requestQueue[head];
         this.head=(this.head+1)%this.requestQueue.length;
-        startWorker();
         this.count--;
         this.notifyAll();
         return request;
